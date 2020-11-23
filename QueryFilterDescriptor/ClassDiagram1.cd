@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Sag.Data.Common.Query.QueryBlock&lt;TItem, TBlock, TOpEnum&gt;" Collapsed="true">
+    <Position X="8.5" Y="2.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAIEIAsgQDEICABEgAAAAAAAwMACSoAGIAAkMEBQAqQ=</HashCode>
+      <FileName>Base\QueryBlock.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Sag.Data.Common.Query.QueryItem" Collapsed="true">
+    <Position X="16.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAABEAAAAAgAAAAAAAQAAAAIAAAAIAAAAAAiA=</HashCode>
+      <FileName>Base\QueryItem.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Sag.Data.Common.Query.QueryNode" Collapsed="true">
+    <Position X="11.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Base\QueryNode.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Sag.Data.Common.Query.ICollectionDebugView&lt;T&gt;" Collapsed="true">
+    <Position X="22.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Internal\DebugViews.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sag.Data.Common.Query.QueryExprInternalListDebugView&lt;T&gt;" Collapsed="true">
+    <Position X="22.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACEAAAAAAAAAAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Internal\DebugViews.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sag.Data.Common.Query.QueryPartsCollectionDebugView&lt;Op, Expr&gt;" Collapsed="true">
+    <Position X="24" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAACEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Internal\DebugViews.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sag.Data.Common.Query.QueryExprOperatorPairDebugView&lt;op, expr&gt;" Collapsed="true">
+    <Position X="24" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAEIAA=</HashCode>
+      <FileName>Internal\DebugViews.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sag.Data.Common.Query.QueryBlockDebugView&lt;op, item, block&gt;" Collapsed="true">
+    <Position X="20.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAUAAAAAAAACAAAAAAAAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Internal\DebugViews.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sag.Data.Common.Query.MsgStrings" Collapsed="true">
+    <Position X="25.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAgAAAGAAAAAAEAAAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Internal\MsgStrings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sag.Data.Common.Query.StringBuilderCache" Collapsed="true">
+    <Position X="25.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAAAAABBIABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Internal\StringBuilderCache.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sag.Data.Common.Query._Resources" Collapsed="true">
+    <Position X="20.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AGAAAAAAAAhAAAGIAAABEEQAAQAAAAAAAAAABogAMIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sag.Data.Common.Query.ConditionBlock" Collapsed="true">
+    <Position X="5.25" Y="4" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ConditionBlock.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sag.Data.Common.Query.ConditionItemtest" Collapsed="true">
+    <Position X="15.25" Y="4" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAIAAAAAgAQgAAAAEAAAAIAAIAAgAAAAAAA=</HashCode>
+      <FileName>ConditionItem - 复制.cs</FileName>
+      <NewMemberFileName>ConditionItem.cs</NewMemberFileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Sag.Data.Common.Query.NodeCollection&lt;TOperator, TValue&gt;" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="20.5" Y="7.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Struct Name="Sag.Data.Common.Query.NodeCollection&lt;TOperator, TValue&gt;.Enumerator" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>NodeCollection.cs</NewMemberFileName>
+        </TypeIdentifier>
+        <Lollipop Position="0.2" />
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AUIAAQAAAAABMBBGTAQIBBQAAAIEAAAECAKAIABQAAA=</HashCode>
+      <FileName>NodeCollection.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Sag.Data.Common.Query.InternalList&lt;T&gt;" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="24" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEIAAEAAAAAAIBAECAAAABQAABAAAAAECACAAABAAQA=</HashCode>
+      <FileName>NodeCollection_Internal.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Sag.Data.Common.Query.QueryEqualComparer&lt;T&gt;" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="22.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAAAAAAAACAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>QueryEqualComparer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Sag.Data.Common.Query.NodeOperatorPair&lt;TOperator, TNode&gt;" Collapsed="true">
+    <Position X="24.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAEAIAA=</HashCode>
+      <FileName>NodeOperatorPair.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="Sag.Data.Common.Query.Link" Collapsed="true">
+    <Position X="20.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAIAAAA=</HashCode>
+      <FileName>NodeCollection_Internal.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="Sag.Data.Common.Query.QueryComparison" Collapsed="true">
+    <Position X="24" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAIAAAAgAAAAgAAAAAIAABAQQAASAQQgAA=</HashCode>
+      <FileName>Enums.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Sag.Data.Common.Query.QueryGroupFunc" Collapsed="true">
+    <Position X="25.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAABCAAAAAEAAAAAQAAAAAAAAAAAAAIAAAAAQ=</HashCode>
+      <FileName>Enums.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Sag.Data.Common.Query.QueryLogical" Collapsed="true">
+    <Position X="20.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAACAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Enums.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Sag.Data.Common.Query.QueryArithmetic" Collapsed="true">
+    <Position X="22.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAMAAAAAAQAAAAAAAAAAAAAAAAQAAAAAAAAAACAAAAQ=</HashCode>
+      <FileName>Enums.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Sag.Data.Common.Query.InsertionBehavior" Collapsed="true">
+    <Position X="20.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAACAAAAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Enums.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>

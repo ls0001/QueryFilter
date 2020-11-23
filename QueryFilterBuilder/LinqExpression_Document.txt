@@ -1,0 +1,174 @@
+﻿#region 方法
+
+
+Ascept(expressionVisitor visitor)
+	对本节点进行访问的访问者,调度到本节点类型的特定visit方法
+
+Call
+	Call(Type, String, Type[], Expression[])
+	通过调用合适的工厂方法，创建一个 MethodCallExpression，它表示对 static（在 Visual Basic 中为 Shared）方法的调用。
+	Call(Expression, MethodInfo)
+	创建一个 MethodCallExpression，它表示调用不带自变量的方法。
+	Call(Expression, MethodInfo, IEnumerable<Expression>)
+	创建一个表示调用带参数的方法的 MethodCallExpression。	
+	Call(MethodInfo, IEnumerable<Expression>) 
+	创建一个 MethodCallExpression，它表示调用有参数的 static（在 Visual Basic 中为 Shared）方法。
+	Call(Expression, String, Type[], Expression[])
+	通过调用合适的工厂方法，创建一个 MethodCallExpression，它表示方法调用。
+
+	参数:
+		instance Expression 
+		要将 Expression 属性设置为与其相等的 Object，它为 null（在 Visual Basic 中则为static）方法传递 Shared。
+		method MethodInfo 
+		要将 MethodInfo 属性设置为与其相等的 Method。
+		arguments IEnumerable<Expression> 
+		一个 IEnumerable<T>，包含用来填充 Expression 集合的 Arguments 对象。
+		type Type 
+		包含指定的 static（在 Visual Basic 中为 Shared）方法的类型。
+		methodName String 
+		方法的名称。
+		typeArguments Type[] 
+		指定泛型方法的类型参数的 Type 对象的数组。 当 methodName 指定非泛型方法时，此参数应为 null。
+		例:创建一个表达式, 该表达式调用不带参数的方法。
+		Expression callExpr = Expression.Call(
+    		Expression.Constant("sample string"), typeof(String).GetMethod("ToUpper", new Type[] { }));
+		例:创建一个表达式, 该表达式调用具有两个参数的实例方法
+		Expression callExpr = Expression.Call(
+    		Expression.New(typeof(SampleClass)),
+     		typeof(SampleClass).GetMethod("AddIntegers", new Type[] { typeof(int), typeof(int) }),
+		Expression.Constant(1),
+		Expression.Constant(2)
+        		);
+		 return arg1 + arg2;
+		
+	
+Constant(object value)/(object value,type type)
+	创建一个 ConstantExpression，其 NodeType 属性等于 Constant，并且其 Value 和 Type 属性设置为指定值。
+	它把 Value 属性设置为指定值
+	参数:	value:Object 要将 Object 属性设置为与其相等的 Value。
+	参数:	type:Type 要将 Type 属性设置为与其相等的 Type
+	例:创建一个表达式, 该表达式表示可以为 null 的类型的常量并将其null值设置为。
+	Expression constantExpr = Expression.Constant(
+                            null,
+                            typeof(double?)
+                        );
+Assign(Expression left, Expression right)
+	创建一个表示赋值运算的 BinaryExpression。
+	参数:
+		left Expression 
+		要将 Expression 属性设置为与其相等的 Left。
+		right Expression 
+		要将 Expression 属性设置为与其相等的 Right。
+	示例:创建一个表示赋值运算的表达式。
+	ParameterExpression variableExpr = Expression.Variable(typeof(String), "sampleVar");
+	Expression assignExpr = Expression.Assign(
+	variableExpr,
+    	Expression.Constant("Hello World!")
+    	);
+	Expression blockExpr = Expression.Block(
+    	new ParameterExpression[] { variableExpr },
+   	assignExpr
+    	);
+	Console.WriteLine(assignExpr.ToString());//==>(sampleVar = "Hello World!")
+	Console.WriteLine(Expression.Lambda<Func<String>>(blockExpr).Compile()());//==> Hello World!
+	
+
+	
+Bind
+	Bind(MemberInfo, Expression) 
+	创建一个 MemberAssignment，它表示字段或属性的初始化。
+	Bind(MethodInfo, Expression) 
+	使用属性访问器方法，创建一个表示成员初始化的 MemberAssignment。
+	参数
+		member MemberInfo 
+		要将 MemberInfo 属性设置为与其相等的 Member。
+		expression Expression 
+		要将 Expression 属性设置为与其相等的 Expression。
+		propertyAccessor MethodInfo 
+		一个表示属性访问器方法的 MethodInfo。
+
+Convert(expression exp,type type)/(expression exp,type type,MethodInfo method)
+	创建一个表示类型转换运算的 UnaryExpression。其 NodeType 属性等于 Convert，并且其 Operand 和 Type 属性设置为指定值。
+	参数:
+		expression Expression 要将 Expression 属性设置为与其相等的 Operand。
+		type Type 要将 Type 属性设置为与其相等的 Type。
+		Method 生成UnaryExpression的的属性设置为实现方法。 IsLiftedToNull 属性为 false。 如果提升节点, IsLifted则为。 true 否则，它是 false。
+	例:创建表示类型转换运算的表达式。
+	Expression convertExpr = Expression.Convert(
+                            Expression.Constant(5.5),
+                            typeof(Int16)
+                        );
+	Console.WriteLine(convertExpr.ToString());//==>Convert(5.5)
+	Console.WriteLine(Expression.Lambda<Func<Int16>>(convertExpr).Compile()());//==>5
+
+
+	condition(expr test,expr ifTrue,expr ifFalse)
+	创建一个表示条件语句的 ConditionalExpression。
+	例:
+	Expression conditionExpr = Expression.Condition(
+                           Expression.Constant(num > 10),
+                           Expression.Constant("num is greater than 10"),
+                           Expression.Constant("num is smaller than 10")
+                         );
+
+
+#endregion
+
+#region 逻辑
+and 
+	创建一个表示按位 BinaryExpression 运算的 AND。
+	And(Expression, Expression)
+	And(Expression, Expression, MethodInfo)
+	参数
+		left Expression 
+		要将 Expression 属性设置为与其相等的 Left。
+		right Expression 
+		要将 Expression 属性设置为与其相等的 Right。
+		method MethodInfo 
+		要将 MethodInfo 属性设置为与其相等的 Method。
+	示例:创建一个表达式, 该表达式表示对两个布尔值的逻辑 AND 运算。
+	Expression andExpr = Expression.And(
+    	Expression.Constant(true),
+    	Expression.Constant(false)
+	);
+	Console.WriteLine(andExpr.ToString());//==(True And False)
+	Console.WriteLine(Expression.Lambda<Func<bool>>(andExpr).Compile()());==False
+
+	
+andAlso
+	AndAlso(Expression, Expression)
+	AndAlso(Expression, Expression, MethodInfo)
+	创建一个 BinaryExpression，它表示仅在第一个操作数的计算结果为 AND 时才计算第二个操作数的条件 true 运算。
+	备注
+	在或AND Visual Basic 中C#无法重载条件运算符。 
+	但是, 使用按AND位AND运算符来计算条件运算符。 
+	因此, 按位AND运算符的用户定义的重载可以是此节点类型的实现方法。
+
+
+AndAssign
+	创建一个表示按位 AND 赋值运算的 BinaryExpression。
+	AndAssign(Expression, Expression)
+	AndAssign(Expression, Expression, MethodInfo)
+	AndAssign(Expression, Expression, MethodInfo, LambdaExpression)
+	参数
+		left Expression 
+		要将 Expression 属性设置为与其相等的 Left。
+		right Expression 
+		要将 Expression 属性设置为与其相等的 Right。
+		method MethodInfo 
+		要将 MethodInfo 属性设置为与其相等的 Method。
+		conversion 
+		LambdaExpression 
+		要将 LambdaExpression 属性设置为与其相等的 Conversion。
+
+
+#endregion
+
+#region 数组
+
+ArrayAccess
+ArrayIndex
+ArrayLength
+
+#endregion
+
