@@ -24,11 +24,13 @@ Id=1 and name="MyName"
 那么我们添加两个节点，用`Predicates`来描述查询条件，用`Lg`来标识逻辑串接，数据结构可以设计为
 ```json
  [ 
-     {"lg" : "", 
-      Predicates:{"Name" : "id", "Op" : "=", "Value" : 1 
-     }, 
-     {"lg" : "and", 
-      Predicates:{ "Name" : "Name", "Op" : "=", "Value" : "MyName" } 
+     {
+      "lg" : "",
+      	"Predicates" : {"Name" : "id", "Op" : "=", "Value" : 1 }
+     },
+     {
+        "lg":"and",
+      	"Predicates": { "Name" : "Name", "Op" : "=", "Value" : "MyName"}
      } 
  ] 
 ```
@@ -41,23 +43,26 @@ Id>1 and Id<10 and (Name="MyName" or Name="HisName")
  比上一条多了一对*分组括号*： 添加节点`filters`来容纳逻辑组合，数据结构可以设计为: 
 ```json
  { 
-     "lg": "", "filters":
-     	[ 
-         	{ "lg": "", "Predicates": 
-          		[ { "lg": "", "Name": "id", "Op": ">", "Value": 1 } ]
+     "lg": "", 
+     	"filters":
+	[ 
+		{ 
+			"lg": "", 
+          		"Predicates":[ { "lg": "", "Name": "id", "Op": ">", "Value": 1 } ]
          	}, 
-         	{ "lg": "and", "Predicates": 
-          		[ { "lg": "", "Name": "id", "Op": "<", "Value": 10 } ] 
+         	{ 
+			"lg": "and", 
+          		"Predicates":[ { "lg": "", "Name": "id", "Op": "<", "Value": 10 } ] 
          	},
-            {
-                "lg": "and",
-                "Predicates":
-            	[
-                        {"lg": "","Name": "name",  "Op": "=", "Value": "MyName"},         
-                        {"lg": "or","Name": "name","Op": "=","Value": "HisName"}
+            	{
+                	"lg": "and",
+                	"Predicates":
+            		[
+                        	{"lg": "","Name": "name",  "Op": "=", "Value": "MyName"},         
+                        	{"lg": "or","Name": "name","Op": "=","Value": "HisName"}
         		]
     		}
-		]
+	]
 }
 ```
 
