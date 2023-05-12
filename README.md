@@ -24,10 +24,10 @@ Id=1 and name="MyName"
 那么我们添加两个节点，用`Predicates`来描述查询条件，用`Lg`来标识逻辑串接，数据结构可以设计为
 ```json
  [ 
-     {"lg" : ""， 
+     {"lg" : "", 
       Predicates:{"Name" : "id", "Op" : "=", "Value" : 1 
      }, 
-     {"lg" : "and" 
+     {"lg" : "and", 
       Predicates:{ "Name" : "Name", "Op" : "=", "Value" : "MyName" } 
      } 
  ] 
