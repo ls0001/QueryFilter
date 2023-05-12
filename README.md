@@ -24,11 +24,11 @@ Id=1 and name="MyName"
 那么我们添加两个节点，用`Predicates`来描述查询条件，用`Lg`来标识逻辑串接，数据结构可以设计为
 ```json
  [ 
-     { "lg" : "", 
-      Predicates:{ "Name":"id", "Op":"=", "Value":1 } 
+     {"lg" : ""， 
+      Predicates:{"Name" : "id", "Op" : "=", "Value" : 1 
      }, 
-     { "lg" : "and" 
-      Predicates:{ "Name":"Name", "Op":"=", "Value":"MyName" } 
+     {"lg" : "and" 
+      Predicates:{ "Name" : "Name", "Op" : "=", "Value" : "MyName" } 
      } 
  ] 
 ```
@@ -71,7 +71,7 @@ Id=1
 
 **基于此设计，能够以简洁的方式：**
 ```c#
-Query.Where(CreateFilterExpression<Entity>(conditionBlock));
+Query.Where(QueryFilterBuilder.CreateFilterExpression<Entity>(conditionBlock));
 ```
 **实现如下复杂的查询组合：**
 ```sql
