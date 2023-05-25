@@ -1,4 +1,5 @@
 ## 关于QueryFilterBuilder
+[更多详情请戳这里,查看连载]: https://www.cnblogs.com/ls0001/p/17395510.html
 
 基于表达式树的通用查询构造器 常见的使用**Linq Expression**的做法 单个条件的，单层级的，简单组装， 几乎都是只能组装成如：
 ```sql
