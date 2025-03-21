@@ -58,7 +58,7 @@
     "$type": "in",//"func"
     //operand参数可以是任何返回单值的节点
     "operand": { "$type": "field", "path": "InvoiceId" }, 
-    "args"[
+    "args":[
         //同样的，参数也可以是任何返回单值的节点
         { "$type": "field", "path": "InvoiceId" },
         { "$type": "val", "type": "Int32", "value": 1 }
@@ -72,7 +72,7 @@
     "$type": "sfunc" //通用函数
     //operand参数可以是任何返回单值的节点
     "operand": { "$type": "field", "path": "InvoiceId" }, 
-    "args"[
+    "args":[
         //第一个参数是操作数，任意单值节点
         { "$type": "field", "path": "InvoiceId" },
         //同样的，参数也可以是任何返回单值的节点
