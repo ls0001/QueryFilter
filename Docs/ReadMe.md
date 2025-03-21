@@ -71,7 +71,7 @@
 {
     "$type": "sfunc" //通用函数
     //operand参数可以是任何返回单值的节点
-    "operand": { "$type": "field", "path": "InvoiceId" }, 
+    "operand":{ "$type": "field", "path": "InvoiceId" }, 
     "args":[
         //第一个参数是操作数，任意单值节点
         { "$type": "field", "path": "InvoiceId" },
