@@ -11,7 +11,6 @@ namespace DynamicQuery.Descriptor;
 /// </summary>
 public interface IQueryNode
 {
-    [property: NotNull]
     public QueryNodeType NodeType { get; }
 }
 #endregion

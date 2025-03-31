@@ -3,6 +3,7 @@
 
 public enum QueryNodeType
 {
+    cond,
     and,
     or,
     eq,

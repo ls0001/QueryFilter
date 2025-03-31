@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Text.Json.Serialization;
 
 namespace DynamicQuery.Descriptor;
 
@@ -7,11 +8,11 @@ namespace DynamicQuery.Descriptor;
 /// <summary>
 /// 一元函数节点
 /// </summary>
-public abstract class UnaryComparesionNode : CoreUnaryNode, IBoolResultNode
+public abstract class UnaryComparesionNode : CoreUnaryNode, IBooleanNode
 {
-    
+
     [JsonPropertyName("args")]
-    public virtual  QueryNode[] Arguments { get; set; }
+    public virtual QueryNode[] Arguments { get; set; }
 
     protected UnaryComparesionNode(QueryNodeType nodeType) : base(nodeType) { }
 
@@ -25,13 +26,14 @@ public abstract class UnaryComparesionNode : CoreUnaryNode, IBoolResultNode
 /// </summary>
 public sealed class EqualNullNode : UnaryComparesionNode
 {
-    private static readonly ConstantNode[] _nullNode = [new ConstantNode { ValueType = null, Value = null }];
-    
-    [JsonIgnore(Condition = JsonIgnoreCondition.Always)]     
-    public override  QueryNode[] Arguments { get => _nullNode; set { return; } }
+    private static readonly ConstantNode<DBNull>[] _nullNode = [new ConstantNode<DBNull>()];
 
-  
+    [JsonIgnore(Condition = JsonIgnoreCondition.Always)]
+    public override QueryNode[] Arguments { get => _nullNode; set { return; } }
+
     public EqualNullNode() : base(QueryNodeType.eqnull) { }
+
+    public EqualNullNode(QueryNode opernad) : this() { Operand = opernad; }
 
 }
 
@@ -40,8 +42,6 @@ public sealed class EqualNullNode : UnaryComparesionNode
 /// </summary>
 public sealed class InNode : UnaryComparesionNode
 {
-    public InNode(): base(QueryNodeType.@in) { }
-
     [JsonPropertyName("args")]
     public override required QueryNode[] Arguments
     {
@@ -49,8 +49,12 @@ public sealed class InNode : UnaryComparesionNode
         set => base.Arguments = (value?.Length >= 1) ? value : throw new ArgumentException($"The \"InNode\" must have at least one argument.");
     }
 
+    public InNode() : base(QueryNodeType.@in) { }
+
+    [SetsRequiredMembers]
+    public InNode(QueryNode operand, QueryNode[] arguments) : this() { Operand = operand; Arguments = arguments; }
 }
- 
+
 /// <summary>
 /// 范围匹配节点
 /// </summary>
@@ -60,11 +64,13 @@ public sealed class BetweenNode : UnaryComparesionNode
     public override required QueryNode[] Arguments
     {
         get => base.Arguments;
-        set => base.Arguments = (value?.Length >= 2) ? value:throw new ArgumentException($"The \"BetweenNode\" must have tow arguments. "); 
+        set => base.Arguments = (value?.Length >= 2) ? value : throw new ArgumentException($"The \"BetweenNode\" must have tow arguments. ");
     }
 
     public BetweenNode() : base(QueryNodeType.btw) { }
 
+    [SetsRequiredMembers]
+    public BetweenNode(QueryNode operand, QueryNode[] arguments) : this() { Operand = operand; Arguments = arguments; }
 }
 
 

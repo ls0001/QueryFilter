@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Text.Json.Serialization;
 
 
 namespace DynamicQuery.Descriptor;
@@ -6,24 +7,17 @@ namespace DynamicQuery.Descriptor;
 /// <summary>
 /// 常量值节点
 /// </summary>
-//[JsonConverter(typeof(ConstNodeJsonConverter))]
-public sealed class ConstantNode : QueryNode, IValueResultNode
+public sealed class ConstantNode<T> : QueryNode, ISingleValueNode,IConstantNode
 {
+    public  Type ValueType { get=>typeof(T);  }
 
-    [JsonPropertyName("type")]
-    public required Type ValueType { get; init; }
-
-    [JsonPropertyName("value")]
-    public object? Value { get; set; }
-
-    [JsonPropertyName("val")]
-    public object Val
-    {
-        set => Value = value;
-    }
+    [MaybeNull]
+    public T Value { get; set; }
 
     public ConstantNode() : base(QueryNodeType.val) { }
 
+    public ConstantNode(T value):this() {Value = value; }
+    
 
 }
 

@@ -1,6 +1,6 @@
 ﻿namespace DynamicQuery.Descriptor;
 
-public interface IBoolResultNode
+public interface IMutipleValueNode
 {
 
 }

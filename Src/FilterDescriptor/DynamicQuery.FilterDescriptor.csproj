@@ -4,7 +4,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <BaseOutputPath>.\..\bin</BaseOutputPath>
+    <BaseOutputPath>.\..\..\bin</BaseOutputPath>
     <Authors>Sag,DynamicQuery,$(AssemblyName)"</Authors>
     <Product>DynamicQuery.$(AssemblyName)</Product>
     <Description>A dynamic query descriptor based on JSON, capable of supporting any combination or nesting of logical conditions. When used in conjunction with QueryFilterBuilder, it can dynamically generate an Expression&lt;Func&lt;TEntity, bool&gt;&gt; expression tree for ORM frameworks like EFCore. The query conditions only require constructing a JSON object, no code needs to be written to achieve any query.</Description>
